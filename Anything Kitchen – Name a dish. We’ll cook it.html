@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anything Kitchen – Name a dish. We’ll cook it.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfbf8;--ink:#1b1530;--muted:#5d5873;--blue:#2347d6;--lemon:#ffd84d;--pink:#ff7aa8;--mint:#6fe0b0;--card:#fff;--line:#d9d7e3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141122;--ink:#f3f1fb;--muted:#a9a4c2;--card:#1d1933;--line:#363058;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141122;--ink:#f3f1fb;--muted:#a9a4c2;--card:#1d1933;--line:#363058;color-scheme:dark}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-size:19px;line-height:1.6}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+.bar{position:sticky;top:0;z-index:5;background:#1b1530;color:#fff;padding-top:env(safe-area-inset-top,0px)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;text-decoration:none;color:var(--lemon)}
+.bar nav a{margin-left:20px;color:#fff;text-decoration:none;font-family:"Bricolage Grotesque",sans-serif;font-size:16px}
+.bar nav a.cta{background:var(--lemon);color:#1b1530;padding:8px 16px;border-radius:999px;font-weight:800}
+.hero{background:var(--lemon);color:#1b1530;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;padding-top:56px;padding-bottom:56px}
+.hero h1{font-weight:800;font-size:clamp(48px,9vw,112px);line-height:.92;letter-spacing:-.035em;margin:0}
+.hero h1 em{font-style:normal;color:var(--blue);display:block}
+.hero p{font-size:22px;max-width:30em;margin:24px 0 28px}
+.btn{display:inline-block;background:#1b1530;color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:18px;padding:15px 28px;border-radius:999px;text-decoration:none;border:0;cursor:pointer}
+.btn.alt{background:#fff;color:#1b1530;margin-left:8px}
+.order .btn{background:var(--lemon);color:#1b1530;border:3px solid #1b1530}
+.plate{aspect-ratio:1;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-size:clamp(110px,22vw,230px);box-shadow:0 0 0 14px #fff,0 0 0 18px #1b1530;cursor:pointer;border:0;width:100%;max-width:380px;margin:0 auto;line-height:1}
+.plate span{display:block;animation:pop .5s}
+@keyframes pop{from{transform:scale(.4) rotate(-30deg);opacity:0}to{transform:none;opacity:1}}
+.tick{background:#1b1530;color:var(--lemon);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:24px}
+.tick div{display:inline-block;animation:run 30s linear infinite}
+@keyframes run{to{transform:translateX(-50%)}}
+section{padding:70px 0}
+h2{font-size:clamp(34px,5.5vw,60px);letter-spacing:-.025em;line-height:1.02;margin:0 0 32px;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.step{border-radius:24px;padding:28px;color:#1b1530}
+.step .e{font-size:48px;line-height:1}
+.step h3{margin:14px 0 6px;font-size:24px}
+.step p{margin:0}
+.s1{background:var(--pink)}.s2{background:var(--mint)}.s3{background:var(--lemon)}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.tab{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:16px;padding:10px 20px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.menu{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.menu li{background:var(--card);border:2px solid var(--ink);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:6px;box-shadow:5px 5px 0 var(--ink)}
+.menu .e{font-size:54px;line-height:1}
+.menu b{font-family:"Bricolage Grotesque",sans-serif;font-size:21px}
+.menu .d{color:var(--muted);font-size:17px;flex:1}
+.menu .p{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;color:var(--blue)}
+:root[data-theme="dark"] .menu .p{color:var(--lemon)}
+.note{color:var(--muted);margin-top:24px}
+.tg{display:flex;flex-wrap:wrap;gap:6px;min-height:26px}
+.tg i{font-style:normal;font-family:"Bricolage Grotesque",sans-serif;font-size:13px;font-weight:500;padding:3px 10px;border-radius:999px;color:#1b1530}
+.tV{background:var(--mint)}.tVG{background:#8fd9ff}.tS{background:var(--pink)}.tstar{background:var(--lemon)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.add{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;padding:9px 16px;border-radius:999px;border:2px solid #1b1530;background:var(--lemon);color:#1b1530;cursor:pointer}
+.add:hover{background:#1b1530;color:var(--lemon)}
+#bk{margin-top:4px}
+.chip{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;padding:7px 14px;border-radius:999px;border:2px solid var(--ink);background:var(--mint);color:#1b1530;cursor:pointer;margin:0 6px 6px 0}
+.fab{display:none;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;background:var(--lemon);color:#1b1530;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;padding:14px 20px;border-radius:999px;border:3px solid #1b1530;text-decoration:none;box-shadow:4px 4px 0 #1b1530}
+.fab.on{display:block}
+.ord{background:var(--blue);color:#fff}
+.ord h2{color:#fff}
+.order{background:var(--card);color:var(--ink);border-radius:26px;padding:30px;max-width:640px;border:3px solid var(--ink)}
+label{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:16px;margin:16px 0 6px}
+input,select,textarea{width:100%;font:inherit;font-size:18px;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+#done{display:none;margin-top:20px;padding:16px;border-radius:12px;background:var(--mint);color:#1b1530;font-family:"Bricolage Grotesque",sans-serif;font-weight:500}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.info div{border:2px solid var(--ink);border-radius:20px;padding:24px}
+.info h3{margin:0 0 6px;font-size:22px}
+.info p{margin:0;color:var(--muted)}
+footer{background:#1b1530;color:#c9c5de;padding:28px 0 calc(40px + env(safe-area-inset-bottom,0px));font-size:16px;text-align:center}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}.plate{max-width:260px}.bar nav a:not(.cta){display:none}}
+@media (prefers-reduced-motion:reduce){.tick div{animation:none}.plate span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="logo" href="#top">Anything Kitchen</a>
+  <nav><a href="#menu">Menu</a><a href="#visit">Visit</a><a class="cta" href="#order">Order</a></nav>
+</div></div>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>Name a dish.<em>We’ll cook it.</em></h1>
+    <p>Anything Kitchen makes any food you can think of: classics, family recipes, half-remembered meals from a trip.</p>
+    <a class="btn" href="#order">Request a dish</a><a class="btn alt" href="#menu">See the menu</a>
+  </div>
+  <button class="plate" id="plate" type="button" aria-label="Show another dish"><span id="pe">🍜</span></button>
+</div></div>
+<div class="tick" aria-hidden="true"><div id="tk"></div></div>
+
+<section><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step s1"><div class="e">📝</div><h3>Tell us what you want</h3><p>Pick from the menu or write in anything else, from birria tacos to your grandmother’s dumplings.</p></div>
+    <div class="step s2"><div class="e">👨‍🍳</div><h3>We confirm the details</h3><p>A chef checks ingredients and spice level, then quotes a price and a pickup time.</p></div>
+    <div class="step s3"><div class="e">🍽️</div><h3>Eat it fresh</h3><p>Dine in, collect, or have it delivered hot to your door.</p></div>
+  </div>
+</div></section>
+
+<section id="menu" style="background:var(--card)"><div class="wrap">
+  <h2>Menu</h2>
+  <div class="tabs" role="tablist" aria-label="Cuisine"></div>
+  <ul class="menu" id="list"></ul>
+  <p class="note">Tags: Chef’s pick, Vegetarian, Vegan, Spicy. Tap “Add to order” on as many dishes as you like, then send one request. Don’t see what you want? Request it anyway and we’ll price it when we confirm.</p>
+</div></section>
+
+<section id="order" class="ord"><div class="wrap">
+  <h2>Request a dish</h2>
+  <div class="order">
+    <label for="n" style="margin-top:0">Your name</label>
+    <input id="n" autocomplete="name">
+    <div id="bk"></div>
+    <label for="d">Add something else (optional)</label>
+    <input id="d" placeholder="e.g. Chicken katsu curry">
+    <label for="s">How many people?</label>
+    <select id="s"><option>1</option><option>2</option><option>3–4</option><option>5–8</option><option>9 or more</option></select>
+    <label for="x">Allergies or notes</label>
+    <textarea id="x" rows="3"></textarea>
+    <p><button class="btn" id="go" type="button">Send request</button></p>
+    <div id="done" role="status"></div>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <h2>Visit us</h2>
+  <div class="info">
+    <div><h3>🕒 Hours</h3><p>Mon–Fri 11:00–22:00<br>Sat–Sun 10:00–23:00</p></div>
+    <div><h3>📍 Address</h3><p>10 Moreton Way<br>Slough, SL1 5LS</p></div>
+    <div><h3>📞 Contact</h3><p>raynzaidi71@gmail.com<br>7345417446</p></div>
+  </div>
+</div></section>
+</main>
+<a class="fab" id="fab" href="#order">🛒 Your order (<span id="fc">0</span>)</a>
+<footer>© 2026 Anything Kitchen. Sample details for a challenge website.</footer>
+
+<script>
+var OWNER_EMAIL="raynzaidi71@gmail.com";
+var TG={V:"Vegetarian",VG:"Vegan",S:"Spicy","★":"Chef’s pick"};
+var menu={
+"Italian":[["🍕","Margherita pizza","Tomato, mozzarella, basil","£11","★ V"],["🍝","Spaghetti carbonara","Guanciale, egg, pecorino","£13",""],["🥘","Lasagne","Slow ragù, béchamel","£14",""],["🍄","Mushroom risotto","Creamy arborio, parmesan","£13","V"],["🍝","Penne arrabbiata","Chilli tomato sauce, garlic","£11","VG S"]],
+"Indian":[["🍛","Butter chicken","Creamy tomato gravy, naan","£14","★"],["🍖","Lamb rogan josh","Kashmiri chilli, rice","£15","S"],["🧀","Paneer tikka","Charred, mint chutney","£12","V"],["🫘","Chana masala","Chickpeas, tomato, spices","£11","VG S"],["🫓","Garlic naan","Fresh from the oven","£4","V"]],
+"Mexican":[["🌮","Birria tacos","Braised beef, consommé","£13","★ S"],["🌯","Chicken burrito","Rice, beans, salsa","£11",""],["🌽","Elote","Grilled corn, lime, cotija","£6","V"],["🧀","Veggie quesadilla","Peppers, cheese, sour cream","£10","V"],["🥑","Guacamole and chips","Fresh avocado, lime","£7","VG"]],
+"East Asian":[["🍜","Pad thai","Rice noodles, tamarind, peanuts","£12","★"],["🍛","Chicken katsu curry","Crisp cutlet, Japanese curry","£13",""],["🥟","Pork dumplings","Pan-fried, chilli oil","£8",""],["🍲","Vegetable ramen","Miso broth, tofu, greens","£12","VG"],["🌶️","Dan dan noodles","Sichuan chilli, minced pork","£12","S"]],
+"Burgers & grill":[["🍔","Classic cheeseburger","Beef patty, pickles, house sauce","£12","★"],["🍖","BBQ ribs","Smoked, sticky glaze","£17",""],["🥙","Halloumi wrap","Grilled, harissa","£9","V"],["🍗","Crispy chicken burger","Hot honey, slaw","£12","S"],["🍟","Loaded fries","Cheese sauce, jalapeños","£6","V"]],
+"Dessert":[["🍮","Sticky toffee pudding","Warm, with custard","£7","★ V"],["🥭","Mango sticky rice","Coconut cream","£7","VG"],["🍩","Churros","Chocolate dip","£6","V"],["🍰","Tiramisu","Coffee, mascarpone, cocoa","£7","V"],["🍫","Chocolate brownie","Warm, with ice cream","£6","V"]]};
+var basket=[];
+function drawBk(){document.getElementById("bk").innerHTML=basket.map(function(x,i){return '<button type="button" class="chip" data-i="'+i+'">'+x+' ✕</button>'}).join("");document.getElementById("fc").textContent=basket.length;document.getElementById("fab").className="fab"+(basket.length?" on":"")}
+document.getElementById("bk").addEventListener("click",function(e){var c=e.target.closest(".chip");if(!c)return;basket.splice(+c.getAttribute("data-i"),1);drawBk()});
+var tabs=document.querySelector(".tabs"),list=document.getElementById("list");
+function show(k){
+  [].forEach.call(tabs.children,function(b){b.setAttribute("aria-selected",b.textContent===k)});
+  list.innerHTML=menu[k].map(function(r){var g=(r[4]||"").split(" ").filter(Boolean).map(function(t){return '<i class="t'+(t==="★"?"star":t)+'">'+TG[t]+'</i>'}).join("");return '<li><div class="e">'+r[0]+'</div><b>'+r[1]+'</b><span class="d">'+r[2]+'</span><div class="tg">'+g+'</div><div class="row"><span class="p">'+r[3]+'</span><button class="add" type="button" data-d="'+r[1]+'">Add to order</button></div></li>'}).join("");
+}
+Object.keys(menu).forEach(function(k){
+  var b=document.createElement("button");b.className="tab";b.type="button";b.setAttribute("role","tab");b.textContent=k;
+  b.onclick=function(){show(k)};tabs.appendChild(b);
+});
+show("Italian");
+list.addEventListener("click",function(e){var b=e.target.closest(".add");if(!b)return;basket.push(b.getAttribute("data-d"));drawBk();b.textContent="Added ✓";setTimeout(function(){b.textContent="Add to order"},1200)});
+
+var names=[];Object.keys(menu).forEach(function(k){menu[k].forEach(function(r){names.push(r[0]+" "+r[1])})});
+var t=names.join("   •   ")+"   •   ";document.getElementById("tk").textContent=t+t;
+
+var em=["🍜","🍕","🌮","🍔","🍛","🥟","🍩","🍝"],ei=0,pe=document.getElementById("pe");
+document.getElementById("plate").onclick=function(){
+  ei=(ei+1)%em.length;var n=pe.cloneNode();n.textContent=em[ei];pe.replaceWith(n);pe=n;
+};
+
+document.getElementById("go").onclick=function(){
+  var n=document.getElementById("n").value.trim(),d=document.getElementById("d").value.trim(),o=document.getElementById("done");
+  o.style.display="block";
+  var items=basket.slice();if(d)items.push(d);if(!items.length){o.textContent="Pick a dish from the menu or type one in so we know what to cook.";return}d=items.join(", ");
+  var body="Name: "+n+"\nDish: "+d+"\nPeople: "+document.getElementById("s").value+"\nNotes: "+document.getElementById("x").value;
+  o.textContent="Your email app should open with the request ready to send. Press send there to finish.";
+  window.location.href="mailto:"+OWNER_EMAIL+"?subject="+encodeURIComponent("Dish request: "+d)+"&body="+encodeURIComponent(body);
+};
+</script>
+</body>
+</html>
